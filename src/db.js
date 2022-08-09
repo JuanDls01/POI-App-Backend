@@ -62,3 +62,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Artist.hasMany(Event);
 // Event.belongsTo(Artist);
 //******************* */
+
+module.exports = {
+  ...sequelize.models,
+  conn: sequelize,
+};

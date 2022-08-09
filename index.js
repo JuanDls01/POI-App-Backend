@@ -1,6 +1,6 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { PreloadData } = require("./src/routes/utils/authUtils");
+// const { PreloadData } = require("./src/routes/utils/authUtils");
 
 conn.sync({ force: false }).then(() => {
   server.listen(process.env.PORT || 3001, () => {

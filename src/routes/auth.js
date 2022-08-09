@@ -3,5 +3,7 @@ const { Router } = require('express')
 const authRouter = Router()
 
 authRouter.get('/login', (req, res) => {
-    return 'funciono'
-})
+    return res.send('funciono')
+});
+
+module.exports = authRouter;
