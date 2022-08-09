@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 module.exports = (sequelize) => {
   sequelize.define(
@@ -67,15 +67,15 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
     },
-    {
-      hooks: {
-        beforeCreate: async (user) => {
-          if (user.password) {
-            const salt = bcrypt.genSaltSync(10, "a");
-            user.password = bcrypt.hashSync(user.password, salt);
-          }
-        }
-      },
-    }
+    // {
+    //   hooks: {
+    //     beforeCreate: async (user) => {
+    //       if (user.password) {
+    //         const salt = bcrypt.genSaltSync(10, "a");
+    //         user.password = bcrypt.hashSync(user.password, salt);
+    //       }
+    //     }
+    //   },
+    // }
   );
 };
