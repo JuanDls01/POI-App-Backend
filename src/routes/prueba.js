@@ -1,7 +1,8 @@
 const { Router } = require('express')
+
 const authRouter = Router()
 
-authRouter.get('/login', (req, res) => {
+authRouter.get('/prueba', (req, res) => {
     return res.send('funciono')
 });
 
