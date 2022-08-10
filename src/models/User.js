@@ -10,6 +10,24 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
+      userName:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          is: /^[a-z ,.'-]+$/i,
+          len: [2, 23],
+        },
+        set(value) {
+          this.setDataValue("userName", value.toLowerCase());
+        },
+        // always return the value with the first letter capitalize
+        get() {
+          return (
+            this.getDataValue("userName").charAt(0).toUpperCase() +
+            this.getDataValue("userName").slice(1)
+          );
+        },
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -59,23 +77,26 @@ module.exports = (sequelize) => {
           isEmail: true,
         },
       },
-      googleId: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
       password: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      dateBirth:{
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      gender:{
+        type:DataTypes.STRING,
+        allowNull:false,
+      },
+      foto:{
+        type:DataTypes.STRING,
+        allowNull: false, 
+      },
+      userActive:{
+        type:DataTypes.STRING,
+        allowNull: false,   
       },
     },
-    // {
-    //   hooks: {
-    //     beforeCreate: async (user) => {
-    //       if (user.password) {
-    //         const salt = bcrypt.genSaltSync(10, "a");
-    //         user.password = bcrypt.hashSync(user.password, salt);
-    //       }
-    //     }
-    //   },
-    // }
   );
 };
