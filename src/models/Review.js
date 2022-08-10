@@ -35,10 +35,10 @@ module.exports = (sequelize) => {
         },
         allowNull: false,
       },
-      location: {
-        type: DataTypes.GEOMETRY("POINT"),
-        allowNull: false,
-      },
+      // location: {
+      //   type: DataTypes.GEOMETRY("POINT"),
+      //   allowNull: false,
+      // },
     },
     {
       timestamps: false,
